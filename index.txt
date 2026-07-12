@@ -1,0 +1,85 @@
+1:"$Sreact.fragment"
+2:I[5837,["636","static/chunks/1d63ee18-108c5ae9f1ac741a.js","461","static/chunks/461-efc938a160408e23.js","177","static/chunks/app/layout-14f5645ea56c3a51.js"],"default"]
+3:I[5541,[],""]
+4:I[801,[],""]
+6:I[5880,[],"OutletBoundary"]
+8:I[8337,[],"AsyncMetadataOutlet"]
+a:I[5880,[],"ViewportBoundary"]
+c:I[5880,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[2455,[],""]
+:HC["/",""]
+:HL["/_next/static/css/fa06c269acf35ffd.css","style"]
+:HL["/_next/static/css/74cd0a2f782d143d.css","style"]
+0:{"P":null,"b":"F94pwyqtLbJ1Lxm8jkdNw","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/fa06c269acf35ffd.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"icon","type":"image/svg+xml","href":"/fav.svg"}],["$","link",null,{"rel":"icon","href":"/favicon.ico","media":"(prefers-color-scheme: light)"}],["$","link",null,{"rel":"icon","href":"/favicon-dark.ico","media":"(prefers-color-scheme: dark)"}]]}],["$","body",null,{"className":"__className_1773dd","children":[["$","$L2",null,{}],["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/74cd0a2f782d143d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"Serving your subdomain on Github too | jialinhuang"}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"
+10:T11be,<p>How to serve a static site on a custom subdomain with GitHub Pages.</p>
+<h1>1. Static Export</h1>
+<p>Your framework must output plain HTML/CSS/JS. No server required.</p>
+<p>Next.js:</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="github-dark github-light"><code data-language="js" data-theme="github-dark github-light" style="display: grid;"><span data-line=""><span style="--shiki-dark:#F97583;--shiki-light:#D73A49">const</span><span style="--shiki-dark:#79B8FF;--shiki-light:#005CC5"> nextConfig</span><span style="--shiki-dark:#F97583;--shiki-light:#D73A49"> =</span><span style="--shiki-dark:#E1E4E8;--shiki-light:#24292E"> { output: </span><span style="--shiki-dark:#9ECBFF;--shiki-light:#032F62">"export"</span><span style="--shiki-dark:#E1E4E8;--shiki-light:#24292E"> };</span></span></code></pre></figure>
+<p>Angular:</p>
+<pre><code>npx ng build --base-href /
+</code></pre>
+<p>The build output goes to a folder (<code>out/</code>, <code>dist/</code>). That folder is what GitHub Pages serves.</p>
+<h1>2. CNAME File</h1>
+<p>Put a file named <code>CNAME</code> in your build output root. One line, your subdomain:</p>
+<pre><code>sub.domain.com
+</code></pre>
+<p>GitHub reads this file to know which custom domain belongs to this repo. Without it, GitHub has no way to route <code>sub.domain.com</code> to your repo.</p>
+<p>For Next.js, write it into <code>out/</code> after build. For Angular, add it as an asset in <code>angular.json</code> so it copies to <code>dist/</code> automatically.</p>
+<h1>3. GitHub Pages Settings</h1>
+<p>Settings > Pages > Custom domain > enter your subdomain > Save.</p>
+<p>If the CNAME file is already in your gh-pages branch, GitHub fills this in automatically. Either way works.</p>
+<p>Wait for GitHub to provision an HTTPS certificate. Takes up to 15 minutes.</p>
+<h1>4. DNS Records</h1>
+<p>Add a DNS record at your domain registrar (Squarespace, Cloudflare, etc.) pointing your subdomain to GitHub.</p>
+<p><strong>Option A: CNAME (recommended)</strong></p>
+<p>One record. GitHub changes IP, you don't touch anything.</p>
+<pre><code>sub  CNAME  youraccount.github.io
+</code></pre>
+<p><strong>Option B: A records (alternative)</strong></p>
+<p>Four records. Harder to maintain. If GitHub changes IPs, you update manually.</p>
+<pre><code>sub  A  185.199.108.153
+sub  A  185.199.109.153
+sub  A  185.199.110.153
+sub  A  185.199.111.153
+</code></pre>
+<p>For apex domains (<code>domain.com</code>, no subdomain prefix), you must use A records. CNAME on apex breaks other records like MX (email).</p>
+<h1>5. How GitHub Routes Multiple Subdomains</h1>
+<p>One GitHub Pages server handles all your subdomains. It differentiates by HTTP <code>Host</code> header.</p>
+<pre><code>Browser requests sub1.domain.com
+  -> DNS resolves to GitHub IP
+  -> HTTP header: Host: sub1.domain.com
+  -> GitHub finds repo with CNAME file containing "sub1.domain.com"
+  -> Serves that repo
+
+Browser requests sub2.domain.com
+  -> Same GitHub IP
+  -> HTTP header: Host: sub2.domain.com
+  -> GitHub finds a different repo
+  -> Serves that repo
+</code></pre>
+<p>Multiple CNAME records can all point to the same <code>youraccount.github.io</code>. The CNAME file inside each repo is what separates them.</p>
+<p><code>sub.youraccount.github.io</code> does not work as a direct URL. GitHub Pages only routes by custom domain or <code>youraccount.github.io/repo-name</code>.</p>
+<h1>6. DNS Propagation Gotchas</h1>
+<p><strong>"DNS check unsuccessful" but the site loads fine?</strong></p>
+<p>GitHub's own DNS resolver hasn't refreshed yet. Remove the custom domain, wait a few seconds, re-add it. This forces a fresh lookup.</p>
+<p><strong>Site doesn't load, <code>dig sub.domain.com</code> returns nothing?</strong></p>
+<p>Your local DNS resolver cached a "not found" (negative cache) from before the record existed. Try querying Google DNS directly:</p>
+<pre><code>dig sub.domain.com @8.8.8.8 +short
+</code></pre>
+<p>If Google returns IPs but your local doesn't, flush your local cache:</p>
+<pre><code># macOS
+sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
+</code></pre>
+<p>Or switch your system DNS to <code>8.8.8.8</code> (Google) or <code>1.1.1.1</code> (Cloudflare). Faster and avoids ISP caching issues.</p>
+<p><strong>TLS certificate provisioning messages are normal:</strong></p>
+<pre><code>TLS certificate is being provisioned.
+This may take up to 15 minutes to complete.
+</code></pre>
+<p>Wait it out. Once done, enable "Enforce HTTPS" in GitHub Pages settings.</p>5:["$","article",null,{"className":"markdown-body page_base__QPYMP","children":["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$10"}}]}]
